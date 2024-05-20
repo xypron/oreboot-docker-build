@@ -1,0 +1,3 @@
+FROM scratch
+ADD noble-base-riscv64.tar.gz /
+CMD ["bash"]
