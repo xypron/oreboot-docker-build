@@ -5,12 +5,14 @@ LABEL Description="Build oreboot for RISC-V"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get install -y \
+	device-tree-compiler \
 	gcc \
 	git \
 	libssl-dev \
+	lld \
+	make \
 	pkg-config \
 	rustup \
-	make \
 	sudo \
 	vim
 
@@ -22,3 +24,5 @@ WORKDIR /home/user
 RUN git clone https://github.com/oreboot/oreboot.git
 WORKDIR /home/user/oreboot
 ENV RUST_BACKTRACE=1
+
+RUN make firsttime
